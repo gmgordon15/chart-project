@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Charter</title>
+</head>
+<body>
+
+
+    <div class="side-menu">
+        <form action="">
+        <div class="chart-type">
+            <select name="charts-select" id="chart-select">
+                <option value="bar">bar</option>
+                <option value="line">line</option>
+                <option value="area">area</option>
+                <option value="bubble">Bubble</option>
+                <option value="doughnut">Doughnut</option>
+                <option value="pie">Pie</option>
+                <option value="radar">Radar</option>
+                <option value="scatter">Scatter</option>
+            </select>
+        </div>
+        </form> 
+    </div>
+   
+
+    <div class="label-name">
+        <input type="text" name="label" id="label-name">
+        <button class="label-submit">Submit</button>
+    </div>
+
+    <div class="data-input-div">
+        <input type="number" class="data-input">
+        <button class="data-submit">Submit</button>
+    </div>
+
+    <div class="data-remove-div">
+        
+        <button class="remove-data">Submit</button>
+        <button class="remove-label">Submit</button>
+    </div>
+
+    <div class="create-chart-div">
+        <button class="create-chart-button">Create Chart</button>
+    </div>
+
+
+    <div class="chart-container">
+        <canvas class="chart"></canvas>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

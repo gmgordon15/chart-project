@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.chart-container{
+    height: 80vh;
+    margin: 5% 5%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart{
+    border: 1px solid black;
+    width: 80%;
+    height: 80%;
+
+}
