@@ -16,6 +16,8 @@ const dataInputButton = document.querySelector(".data-submit")
 const chartTitleInput = document.querySelector("#chart-name")
 const chartTitleBTN = document.querySelector(".chart-submit")
 
+const exportPDFButton = document.querySelector(".create-chart-button")
+
 let labelValue = labelInput.value
 let dataValue = dataInput.value
 
@@ -33,7 +35,7 @@ labelSubmit.addEventListener('click', function(){
 })
 
 const ctx = document.querySelector('.chart').getContext('2d');
-
+const ctx1 = document.querySelector('#chart')
 const data = {
     label: 'Chart Title',
     labels: [],
@@ -62,12 +64,25 @@ const options = {
 }
 
 
+const bgColor =  {
+    id: "bgColor",
+    beforeDraw: (chart, options) =>{
+        const {ctx, width, height} = chart;
+        ctx.fillStyle = 'white'
+        ctx.fillRect(0, 0, width, height)
+        ctx.restore()
+    }
+}
+
+
+
+
   const config = {
     type: 'bar',
     label: 'Chart Title',
     data,
     options,
-    plugins: []
+    plugins: [bgColor]
   }
 
   const config2 = {
@@ -75,7 +90,7 @@ const options = {
     label: 'Chart Title',
     data,
     options,
-    plugins: []
+    plugins: [bgColor]
   }
 
   const config3 = {
@@ -83,7 +98,7 @@ const options = {
     label: 'Chart Title',
     data,
     options,
-    plugins: []
+    plugins: [bgColor]
   }
 
   const config4 = {
@@ -91,7 +106,7 @@ const options = {
     label: 'Chart Title',
     data,
     options,
-    plugins: []
+    plugins: [bgColor]
   }
 
   const config5 = {
@@ -99,7 +114,7 @@ const options = {
     label: 'Chart Title',
     data,
     options,
-    plugins: []
+    plugins: [bgColor]
   }
 
   const config6 = {
@@ -107,7 +122,7 @@ const options = {
     label: 'Chart Title',
     data,
     options,
-    plugins: []
+    plugins: [bgColor]
   }
 
 
@@ -214,3 +229,26 @@ function removeLabel(){
 removeLabelBTN.addEventListener('click', function(){
     removeLabel()
 })
+
+
+
+
+function downloadPDF(){
+    const pdfChart = document.querySelector('.chart')
+
+    const pdfChartImg  = pdfChart.toDataURL('image/jpeg', 1.0)
+
+    let pdf = new jsPDF('landscape');
+    pdf.setFontSize(20);
+    pdf.addImage(pdfChartImg, 'JPEG', 15, 15, 280, 150)
+    pdf.save('myChart.pdf')
+}
+
+
+exportPDFButton.addEventListener('click', function(){
+    downloadPDF()
+    console.log("Export")
+})
+
+
+
