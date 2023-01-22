@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Charter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js" integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <title>ChartIt.</title>
 </head>
 <body>
 
-
+<div class="top-bar">
+    <h1 class="logo">ChartIt.</h1>
+</div>
+<div class="main-container">
     <div class="side-menu">
-        <form action="">
+        <h1 class="menu-title">Chart Menu</h1>
         <div class="chart-type">
             <select name="charts-select" id="chart-select">
-                <option value="bar">bar</option>
-                <option value="line">line</option>
+                <option value="bar">Bar</option>
+                <option value="line">Line</option>
                 <option value="area">area</option>
                 <option value="bubble">Bubble</option>
                 <option value="doughnut">Doughnut</option>
@@ -24,34 +31,47 @@
                 <option value="scatter">Scatter</option>
             </select>
         </div>
-        </form> 
-    </div>
+    
    
+        <div class="chart-name">
+            <h3>Chart Title</h3>
+            <input type="text" name="label" id="chart-name" placeholder="Enter Chart Name...">
+            <button class="chart-submit">Add</button>
+        </div>
+    
 
     <div class="label-name">
-        <input type="text" name="label" id="label-name">
-        <button class="label-submit">Submit</button>
+        <h3>Label</h3>
+        <input type="text" name="label" id="label-name" placeholder="Enter Label Name...">
+        <button class="label-submit">Add</button>
     </div>
 
     <div class="data-input-div">
-        <input type="number" class="data-input">
-        <button class="data-submit">Submit</button>
+        <h3>Data</h3>
+        <input type="number" class="data-input" placeholder="Enter Data...">
+        <button class="data-submit">Add</button>
     </div>
 
     <div class="data-remove-div">
-        
-        <button class="remove-data">Submit</button>
-        <button class="remove-label">Submit</button>
+        <button class="remove-label">Remove Label</button>
+        <button class="remove-data">Remove Data</button>
+       
     </div>
 
     <div class="create-chart-div">
-        <button class="create-chart-button">Create Chart</button>
+        <button class="create-chart-button">Export As PDF</button>
     </div>
+
+</div>
+
 
 
     <div class="chart-container">
         <canvas class="chart"></canvas>
     </div>
+
+    
+</div>
 
     <script src="app.js"></script>
 </body>

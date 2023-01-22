@@ -12,6 +12,10 @@ const labelSubmit = document.querySelector(".label-submit")
 const dataInput = document.querySelector(".data-input")
 const dataInputButton = document.querySelector(".data-submit")
 
+
+const chartTitleInput = document.querySelector("#chart-name")
+const chartTitleBTN = document.querySelector(".chart-submit")
+
 let labelValue = labelInput.value
 let dataValue = dataInput.value
 
@@ -31,100 +35,78 @@ labelSubmit.addEventListener('click', function(){
 const ctx = document.querySelector('.chart').getContext('2d');
 
 const data = {
-    labels: ['test 1', 'test 2', 'test 3'],
+    label: 'Chart Title',
+    labels: [],
         datasets: [{
-            data:[124923, 47594, 848937]
+            data:[]
         }],
 }
 
-/*const config = new Chart(ctx, {
-    type: 'bar',
-    data,
-        /*labels: ['test 1', 'test 2', 'test 3'],
-        datasets: [{
-            data:[124923, 47594, 848937]
-        }],
+const options = {
+    plugins: {
+        title: {
+            display: true,
+            text: 'Custom Chart Title'
+        },
+        legend: {
+            display: false,
+            labels: {
+                color: 'rgb(255, 99, 132)',
+            },
+            title: {
+                text: 'Legend Text'
+            },
+        }
 
-    
-    options: {},
-    plugins: []
-  }) */
+    }
+}
+
 
   const config = {
     type: 'bar',
+    label: 'Chart Title',
     data,
-        /*labels: ['test 1', 'test 2', 'test 3'],
-        datasets: [{
-            data:[124923, 47594, 848937]
-        }],*/
-
-    
-    options: {},
+    options,
     plugins: []
   }
 
   const config2 = {
     type: 'line',
+    label: 'Chart Title',
     data,
-        /*labels: ['test 1', 'test 2', 'test 3'],
-        datasets: [{
-            data:[124923, 47594, 848937]
-        }],*/
-
-    
-    options: {},
+    options,
     plugins: []
   }
 
   const config3 = {
     type: 'pie',
+    label: 'Chart Title',
     data,
-        /*labels: ['test 1', 'test 2', 'test 3'],
-        datasets: [{
-            data:[124923, 47594, 848937]
-        }],*/
-
-    
-    options: {},
+    options,
     plugins: []
   }
 
   const config4 = {
     type: 'radar',
+    label: 'Chart Title',
     data,
-        /*labels: ['test 1', 'test 2', 'test 3'],
-        datasets: [{
-            data:[124923, 47594, 848937]
-        }],*/
-
-    
-    options: {},
+    options,
     plugins: []
   }
 
   const config5 = {
     type: 'doughnut',
+    label: 'Chart Title',
     data,
-        /*labels: ['test 1', 'test 2', 'test 3'],
-        datasets: [{
-            data:[124923, 47594, 848937]
-        }],*/
-
-    
-    options: {},
+    options,
     plugins: []
   }
 
   const config6 = {
     type: 'bubble',
+    label: 'Chart Title',
     data,
-        /*labels: ['test 1', 'test 2', 'test 3'],
-        datasets: [{
-            data:[124923, 47594, 848937]
-        }],*/
-
-    
-    options: {},
+    options,
     plugins: []
   }
 
@@ -143,6 +125,17 @@ const data = {
     config.data.labels.push(addLabelValue)
     myChart.update()
   }
+
+  function updateTite(){
+    let chartTitleInputValue = chartTitleInput.value
+    const addChartValue = chartTitleInputValue.toString()
+    config.options.plugins.title.text = addChartValue
+    myChart.update()
+  }
+
+  chartTitleBTN.addEventListener('click',function(){
+      updateTite()
+  })
 
   labelSubmit.addEventListener('click', function(){
     updateLabel()
