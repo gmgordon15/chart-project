@@ -25,10 +25,6 @@ labelSubmit.addEventListener('click', function(){
     let labelValue = labelInput.value
     const addLabelValue = labelValue.toString()
     let dataValue = dataInput.value
-    console.log(labelValue)
-    console.log(addLabelValue)
-    console.log(dataValue)
-    
    return addLabelValue
 
 
@@ -141,11 +137,15 @@ const bgColor =  {
     myChart.update()
   }
 
+  
+
+
   function updateTite(){
     let chartTitleInputValue = chartTitleInput.value
     const addChartValue = chartTitleInputValue.toString()
     config.options.plugins.title.text = addChartValue
     myChart.update()
+    
   }
 
   chartTitleBTN.addEventListener('click',function(){
@@ -160,8 +160,7 @@ const bgColor =  {
     let dataValue = dataInput.value
     let dataValueInt = parseInt(dataValue)
       config.data.datasets[0].data.push(dataValueInt)
-      console.log(dataValueInt)
-      console.log(config.data.datasets[0].data)
+    
       myChart.update()
   }
 
@@ -178,7 +177,6 @@ const bgColor =  {
 function changeChartType(){
     let e = document.getElementById("chart-select");
     let chartSelectValue = e.value;
-    console.log(chartSelectValue)
     myChart.destroy()
 
     if(chartSelectValue === 'bar'){
@@ -241,13 +239,12 @@ function downloadPDF(){
     let pdf = new jsPDF('landscape');
     pdf.setFontSize(20);
     pdf.addImage(pdfChartImg, 'JPEG', 15, 15, 280, 150)
-    pdf.save('myChart.pdf')
+    pdf.save('New Chart')
 }
 
 
 exportPDFButton.addEventListener('click', function(){
     downloadPDF()
-    console.log("Export")
 })
 
 
