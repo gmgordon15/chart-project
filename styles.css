@@ -252,3 +252,25 @@ h3{
     background-color:#23486d;
     
 }
+
+
+@media all and (max-width: 500px){
+
+    .side-menu{
+        width: 33%;
+    }
+
+    .menu-title{
+        font-size: 20px;
+    }
+   
+    .chart-container{
+        width: 55%;
+        height: 400px;
+    }
+
+    .chart{
+        width: 230px;
+        height: 100%;
+    }
+}
